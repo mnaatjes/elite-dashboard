@@ -101,6 +101,8 @@ These endpoints are strictly for populating the administrative dashboard UI. The
     *   **Description:** Retrieves a list of all registered data sources, their UUIDs, and ETags.
 *   **`GET /api/v1/jobs/`**
     *   **Description:** Retrieves a historical list of ETL runs (Success, Failed, Running).
+*   **`GET /api/v1/jobs/{job_id}/logs`**
+    *   **Description:** Retrieves the specific error trace or logs for a single job execution. Used primarily to display error details for failed jobs in the UI.
 
 ### 5.2 Lineage & Warehouse Catalog
 *   **`GET /api/v1/catalog/lineage/{source_id}`**
