@@ -147,3 +147,41 @@ graph TD
     Silver -->|Gold Aggregation SQL| Gold1["Gold: dim_spansh"]
     Silver -->|Gold Aggregation SQL| Gold2["Gold: fct_systems"]
 ```
+
+## 6. Site Structure & Directory Tree
+
+The Vue 3 frontend will implement these workflows using the following component architecture:
+
+```text
+src/
+├── api/
+│   ├── client.js          # Core fetch wrapper
+│   ├── sources.js         # API calls for Source Management
+│   ├── jobs.js            # API calls for Job Monitoring
+│   └── catalog.js         # API calls for Introspection & HitL templates
+├── components/
+│   ├── layout/
+│   │   ├── Sidebar.vue    # Global navigation menu
+│   │   └── Header.vue     # Global top bar (breadcrumbs, alerts)
+│   └── ui/
+│       ├── JobTable.vue   # Reusable table for Job Monitoring
+│       ├── SqlEditor.vue  # CodeMirror/Monaco wrapper for HitL Editor
+│       └── NodeGraph.vue  # Canvas/SVG component for Lineage Visualization
+└── views/
+    ├── Dashboard.vue      # Home page: Analytics overview & Job Monitoring
+    ├── Sources.vue        # Source Management & Sync Triggering
+    ├── Catalog.vue        # Schema Introspection & HitL Transformation Editor
+    ├── Lineage.vue        # Data Lineage Visualization
+    └── Settings.vue       # Application Configuration
+```
+
+## 7. Sitemap
+
+*   **`/` (Dashboard)**: High-level analytics and recent ETL job history.
+*   **`/sources`**: Registration of APIs and manual Bronze Sync triggers.
+*   **`/catalog`**: 
+    *   `?layer=bronze`: Schema introspection of raw tables.
+    *   `?layer=silver`: HitL SQL transformation editor.
+    *   `?layer=gold`: HitL business logic SQL editor.
+*   **`/lineage`**: Interactive graph tracing table dependencies.
+*   **`/settings`**: Global app preferences and API connection strings.
