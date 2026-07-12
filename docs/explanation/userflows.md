@@ -118,7 +118,7 @@ sequenceDiagram
     
     User->>Editor: Writes SQL & Clicks Dry Run
     Editor->>BackendAPI: POST /api/v1/pipeline/silver/normalize (dry_run: true)
-    BackendAPI->>Postgres: BEGIN; EXECUTE SQL; ROLLBACK;
+    BackendAPI->>Postgres: BEGIN, EXECUTE SQL, ROLLBACK
     Postgres-->>BackendAPI: Validation Result
     BackendAPI-->>Editor: Success or DB Error
     Editor-->>User: Displays Result
