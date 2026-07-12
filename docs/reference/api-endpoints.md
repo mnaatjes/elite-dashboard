@@ -111,3 +111,11 @@ These endpoints are strictly for populating the administrative dashboard UI. The
 ### 5.3 HitL Template Management
 *   **`GET /api/v1/catalog/templates/{source_id}?layer={silver|gold}`**
     *   **Description:** Retrieves the raw text content of the `.sql` templates stored on the filesystem. This allows the dashboard to display, diff, or serve as an editor for HitL transformation logic.
+
+### 5.4 Advanced Analytics & Configuration
+*   **`GET /api/v1/analytics/overview`**
+    *   **Description:** Aggregates global ETL metrics (total sources, tables, row counts, and job success/fail rates). Designed specifically to populate high-level dashboard metric cards.
+*   **`GET /api/v1/catalog/search?q={query}`**
+    *   **Description:** Performs a global text search against PostgreSQL's `information_schema.columns`. It searches across the `bronze`, `silver`, and `gold` schemas simultaneously to locate specific table or column names matching the query (must be >= 3 characters).
+*   **`PATCH /api/v1/sources/{source_id}`**
+    *   **Description:** Allows the dashboard to update mutable source configuration parameters (like `schedule_interval_hours`) in the SQLite registry without having to delete and re-register the source.
