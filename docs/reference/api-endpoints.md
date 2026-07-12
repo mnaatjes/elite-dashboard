@@ -88,3 +88,26 @@ Submits the user's custom SQL to perform fact/dimension aggregations and busines
   }
   ```
 * **Behavior:** Operates identically to the Silver endpoint, isolating validation, securely saving templates, updating lineage, and executing.
+
+## 5. Dashboard Resource APIs (Query Endpoints)
+
+These endpoints are strictly for populating the administrative dashboard UI. They expose the state of the ETL pipeline, the job histories, and the Data Warehouse catalog metadata.
+
+### 5.1 Source & Job Management
+*   **`POST /api/v1/sources/`**
+    *   **Description:** Registers a new data source and begins tracking it in the SQLite Registry.
+    *   **Payload:** `{"name": "spansh", "download_uri": "...", "schedule_interval_hours": 24}`
+*   **`GET /api/v1/sources/`**
+    *   **Description:** Retrieves a list of all registered data sources, their UUIDs, and ETags.
+*   **`GET /api/v1/jobs/`**
+    *   **Description:** Retrieves a historical list of ETL runs (Success, Failed, Running).
+
+### 5.2 Lineage & Warehouse Catalog
+*   **`GET /api/v1/catalog/lineage/{source_id}`**
+    *   **Description:** Retrieves the dependency graph from the SQLite catalog mapping dynamically generated tables to their SQL transformations.
+*   **`GET /api/v1/catalog/tables?layer={layer}`**
+    *   **Description:** Queries the live PostgreSQL `information_schema` to return an exact list of physical tables active in the warehouse (layer can be `bronze`, `silver`, or `gold`).
+
+### 5.3 HitL Template Management
+*   **`GET /api/v1/catalog/templates/{source_id}?layer={silver|gold}`**
+    *   **Description:** Retrieves the raw text content of the `.sql` templates stored on the filesystem. This allows the dashboard to display, diff, or serve as an editor for HitL transformation logic.
