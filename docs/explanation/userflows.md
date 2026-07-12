@@ -142,6 +142,8 @@ sequenceDiagram
 ### Flowchart
 ```mermaid
 graph TD
-    Bronze(Bronze: raw_spansh) -->|Silver Transform| Silver(Silver: stg_spansh)
-    Silver -->|Gold Aggregation| Gold(Gold: dim_spansh)
+    Source["External API (Spansh)"] -->|Bronze Sync| Bronze["Bronze: raw_spansh"]
+    Bronze -->|Silver Transform SQL| Silver["Silver: stg_spansh"]
+    Silver -->|Gold Aggregation SQL| Gold1["Gold: dim_spansh"]
+    Silver -->|Gold Aggregation SQL| Gold2["Gold: fct_systems"]
 ```
