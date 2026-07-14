@@ -35,8 +35,6 @@
 * **Approval Override:** When the user explicitly states "approved", "generate the code", or gives clear consent to a proposed design or model, agents are authorized to immediately bypass manual implementation recommendations and write the code directly to the filesystem using the appropriate tools.
 
 ## 4. Next Session Context / Handoff Notes
-* **Project Status:** All 5 core HitL workflows (Sources, Dashboard, Catalog, Lineage, Settings) have been implemented as low-fi wireframes and successfully wired to the `elite_quick` backend API. The Vue Router and nested component layouts are fully operational. The API client is configured to communicate over the LAN IP (`192.168.1.146:8000`), and the backend CORS has been updated to match.
-* **Next Immediate Task:** 
-  1. Transition from wireframe low-fi styling to final aesthetic CSS implementations based on user design requests.
-  2. Implement comprehensive Vitest/Vue Test Utils coverage for the reactive UI state and API edge cases.
+* **Project Status:** [CLEARED - Awaiting New UI Scaffold]
+* **Next Immediate Task:** [CLEARED]
 * **AGY Conversation State:** The current active conversation UUID is `63ed589b-0fd9-46df-94f8-985aea57f6ba`. Use this UUID to restore context if the terminal session is interrupted.
