@@ -1,25 +1,44 @@
-# Elite Dashboard
+# tmp-app
 
-## Overview
-The `elite_dashboard` is a dedicated administrative frontend designed specifically to manage and orchestrate the Human-in-the-Loop (HitL) execution pipeline for the Elite ETL platform. 
+This template should help get you started developing with Vue 3 in Vite.
 
-Rather than serving as the final consumer application (which will reside in `elite_mvp`), this dashboard empowers developers and data engineers to interact directly with the backend ETL API. It allows administrators to trigger extraction jobs, introspect raw data schemas, manually write and validate SQL transformations via the UI, and promote decoupled pipeline logic through the Silver and Gold phases.
+## Recommended IDE Setup
 
-## Technology Recommendations
-To achieve a modern, reactive, and responsive application for this dashboard, we recommend the following toolchain:
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-### Core Frameworks
-* **[Vite](https://vitejs.dev/) + [React](https://react.dev/) / [Vue 3](https://vuejs.org/):** Ideal for rapidly building an interactive Single Page Application (SPA). The complex HitL handshake requires maintaining intricate JSON states (e.g., table schemas and arrays of user-provided SQL payloads), making React or Vue's reactivity systems invaluable.
-* **[Next.js](https://nextjs.org/) / [Nuxt](https://nuxt.com/):** If you anticipate the dashboard growing into a massive multi-page application with server-side rendering or extensive routing.
+## Recommended Browser Setup
 
-### Documentation Tooling
-* **[VitePress](https://vitepress.dev/):** Since this project adheres to the Diátaxis documentation framework, VitePress is highly recommended for building beautiful, fast, Markdown-driven documentation sites directly from the `docs/` folder.
+- Chromium-based browsers (Chrome, Edge, Brave, etc.):
+  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
+- Firefox:
+  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
-### UI & Styling
-* **Component Libraries:** Use robust component libraries like [MUI](https://mui.com/), [Ant Design](https://ant.design/), or [Radix UI](https://www.radix-ui.com/) to quickly scaffold data grids, schema viewers, and SQL text-editor inputs (like Monaco Editor).
-* **Styling:** Lean towards rich aesthetics (glassmorphism, subtle gradients, dark mode) rather than plain generic frameworks to ensure the tool feels premium and enjoyable to manage.
+## Customize configuration
 
-## Getting Started
-Please consult the `docs/` directory for detailed information on how to interact with the Elite ETL API.
+See [Vite Configuration Reference](https://vite.dev/config/).
 
-* See `docs/reference/api-endpoints.md` for technical API payloads and routes.
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
